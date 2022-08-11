@@ -1,0 +1,13 @@
+:root {
+    font-size: 62.5%;
+}
+
+body {
+    width: 37.5rem;
+    margin: auto;
+
+}
+
+.card {
+    display: none;
+}

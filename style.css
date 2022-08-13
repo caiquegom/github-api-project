@@ -33,7 +33,7 @@ header h1 {
 }
 
 header p {
-    font-size: 1.6rem;
+    font-size: 2rem;
     font-weight: 300;
 }
 
@@ -50,10 +50,15 @@ header div .textfield{
     gap: 0;
 }
 
-header div input,
-header div button {
+header div .textfield input,
+header div .textfield button {
     border: none;
     padding: 0.7rem;
+    font-size: 1.5rem;
+}
+
+header div .textfield input {
+    padding-inline: 2rem;;
 }
 
 header div input {
@@ -66,7 +71,7 @@ header div button {
     background-color: hsl(238, 34%, 36%);
     color: white;
     font-weight: 700;
-    transition: background-color 50ms;
+    transition: background-color 200ms;
 }
 
 header div button:hover {

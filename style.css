@@ -1,13 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
 :root {
+    --card-bg: hsl(236, 22%, 15%);
+    --bg-color: hsl(235, 21%, 11%);
+
     font-size: 62.5%;
 }
 
 body {
     width: 37.5rem;
     margin: auto;
+    background-color: var(--bg-color);
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: center;
+    color: white
+}
 
+header {
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem
+}
+
+header h1 {
+    font-size: 4rem;
+}
+
+header div {
+    display: flex;
+}
+
+header div input,
+header div button {
+    border: none;
+    padding: 0.5rem;
+}
+
+header div input {
+    border-radius: 0.4rem 0 0 0.4em;
+}
+
+header div button {
+    border-radius: 0 0.4rem 0.4rem 0;
+    background-color: hsl(237, 35%, 22%);
+    color: white;
+    font-weight: 700;
+}
+
+
+section {
+    padding: 1.6rem;
+    display: none;
+    color: white;
+    background-color: var(--card-bg);
+    border: 0.001rem solid white;
+    border-radius: 0.4rem;
 }
 
 .card {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+    
 }
+
+.card img {
+    border: 0.2rem solid white;
+    border-radius: 100%;
+    width: 12rem;
+}
+
+.card h2 {
+    font-size: 2.5rem;
+}
+
+.card p {
+    font-size: 1.5rem;
+
+}
+
+.card ul {
+    list-style: none;
+    display: flex;
+    gap: 1.2rem;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+

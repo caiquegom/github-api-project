@@ -17,42 +17,62 @@ body {
     background-color: var(--bg-color);
     font-family: 'Roboto Condensed', sans-serif;
     text-align: center;
-    color: white
+    color: white;
 }
 
 header {
-    margin-bottom: 3rem;
+    margin-block: 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.8rem
+    gap: 1.6rem;
 }
 
 header h1 {
-    font-size: 4rem;
+    font-size: 5rem;
+}
+
+header p {
+    font-size: 1.6rem;
+    font-weight: 300;
 }
 
 header div {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+header div .textfield{
+    display: flex;
+    flex-direction: row;
+    gap: 0;
 }
 
 header div input,
 header div button {
     border: none;
-    padding: 0.5rem;
+    padding: 0.7rem;
 }
 
 header div input {
+    outline: none;
     border-radius: 0.4rem 0 0 0.4em;
 }
 
 header div button {
     border-radius: 0 0.4rem 0.4rem 0;
-    background-color: hsl(237, 35%, 22%);
+    background-color: hsl(238, 34%, 36%);
     color: white;
     font-weight: 700;
+    transition: background-color 50ms;
 }
 
+header div button:hover {
+    background-color: hsl(235, 34%, 31%);
+    cursor: pointer;
+}
 
 section {
     padding: 1.6rem;
@@ -92,5 +112,10 @@ section {
     gap: 1.2rem;
     font-size: 1.5rem;
     font-weight: 300;
+}
+
+.error {
+    background-color: initial;
+    font-size: 2rem;
 }
 

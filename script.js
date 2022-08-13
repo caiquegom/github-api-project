@@ -1,6 +1,7 @@
 const button = document.querySelector("button");
 const input = document.querySelector("input");
 const card = document.querySelector('section');
+const errorMessage = document.querySelector('.error');
 
 const userInfo = {
     avatar: document.getElementById('avatar'),
@@ -12,14 +13,16 @@ const userInfo = {
     location: document.getElementById("location")
 }
 
-const icons = {
+const apiURL = 'https://api.github.com/users/'
 
+const showUserCard = () => {
+    card.style.display = 'block';
+    errorMessage.style.display = 'none'
 }
 
-let apiURL = 'https://api.github.com/users/'
-
-const showCard = () => {
-    card.style.display = 'inline-block';
+const showErrorMessage = () => {
+    errorMessage.style.display = 'block'
+    card.style.display = 'none';
 }
 
 const createUserURL = username => apiURL + username;
@@ -31,12 +34,18 @@ const verifyCompanyAndLocation = (userInfo, user) => {
 
 const returnUser = () => {
     const userURL = createUserURL(input.value);
+    let isThereError = false;
 
     fetch(userURL)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw "Usuário não encontrado";
+            }
+            return response.json()   
+        })
         .then(user => {
+            console.log(user)
             verifyCompanyAndLocation(userInfo, user);
-            console.log(user.company, user.location)
             userInfo.avatar.src = user.avatar_url;
             userInfo.name.innerHTML = user.name;
             userInfo.bio.innerHTML = user.bio;
@@ -45,12 +54,17 @@ const returnUser = () => {
             userInfo.company.innerHTML = `<i class="fa fa-building"></i> <br> ${user.company}`;
             userInfo.location.innerHTML = `<i class="fa fa-location-dot"></i> <br> ${user.location}`;
         })
+        .catch((err) => {
+            isThereError = true;
+        })
+        .finally(() => {
+            if (!isThereError) {
+                showUserCard()
+            } else {
+                showErrorMessage()
+            }
+        })
 }
 
-const showUser = () => {
-    returnUser();
-    showCard()
-}
-
-button.addEventListener('click', showUser);
+button.addEventListener('click', returnUser);
 
